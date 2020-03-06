@@ -1,0 +1,11 @@
+package com.example.CustomerMicroservice;
+
+public class Customer {
+	
+	String ID;
+	String name;
+	String address;
+	long pincode;
+	
+
+}

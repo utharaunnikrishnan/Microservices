@@ -1,0 +1,5 @@
+package com.example.CustomerMicroservice;
+
+public class RemoteStockRepository {
+
+}

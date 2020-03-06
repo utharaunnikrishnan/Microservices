@@ -1,0 +1,86 @@
+package com.example.StockMicroservice;
+
+
+import java.util.ArrayList;
+import java.util.List;
+import org.springframework.stereotype.Service;
+
+@Service
+
+public class StockService {
+	
+
+		List<Stock> allStocks=new ArrayList();
+		
+		public List<Stock> getAllStocks()
+		{
+			Stock s1=new Stock("Infy",789);
+			Stock s2=new Stock("wipro",900);
+			Stock s3=new Stock("cts",1000);
+			Stock s4=new Stock("tcs",2000);
+			
+	
+			allStocks.add(s1);
+			allStocks.add(s2);
+			allStocks.add(s3);
+			allStocks.add(s4);
+				
+		}
+		
+
+		public Stock getAStock(String name)
+		{
+
+			Stock s=new Stock(); // empty customer object
+			
+			for (Stock stockTemp:allStocks)
+			{
+				if (stockTemp.getName()==name)
+				{
+					s=stockTemp;
+					break;
+					
+				}
+			}
+			
+			
+			return c; // customer object matching the cust id
+			
+		}
+		
+		public boolean deleteACustomer(int cid)
+		{
+			System.out.println("Service: Accepting the customer id "+cid);
+			boolean isDeleted=false;
+			// write the logic to find out the customer obj for the given custid
+			Customer c=new Customer(); // empty customer object
+			
+			for (Customer custTemp:allCustomers)
+			{
+				if (custTemp.getID()==cid)
+				{
+					c=custTemp;
+					allCustomers.remove(custTemp);
+					isDeleted=true;
+					break;
+					
+				}
+			}
+			
+			
+			return isDeleted;
+			
+		}
+		
+		public String addACustomer(Customer customer)
+		{
+			allCustomers.add(customer);
+			return customer.getName()+" added succesfully";
+			
+		}
+
+		
+	}
+
+
+}

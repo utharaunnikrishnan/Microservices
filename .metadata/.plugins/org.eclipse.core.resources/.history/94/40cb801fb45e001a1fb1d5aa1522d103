@@ -1,0 +1,45 @@
+package com.ofss;
+
+import java.util.ArrayList;
+import java.util.List;
+
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RestController;
+
+@RestController
+public class CustomerController {
+	
+	List<Customer> allCustomers=new ArrayList();
+	
+    @RequestMapping(value="/customers",method=RequestMethod.GET)
+	public List<Customer> allCustomers()
+	{
+		Customer c1= new Customer(1, "Uthara", "Bangalore");
+		Customer c2= new Customer(2, "Priyanka", "Bangalore");
+		
+		allCustomers.add(c1);
+		allCustomers.add(c2);
+		return allCustomers;
+		
+	}
+    
+    @RequestMapping(value="/customers/{custId}",method=RequestMethod.GET)
+    public Customer oneCustomer(@PathVariable("custId") int cid) 
+    	{
+    		System.out.println("Accepting");
+    		Customer C = new Customer();
+    		
+    		for (Customer custTemp:allCustomers)
+    		{
+    			if(custTemp.getCustId()==cid) {
+    				C=custTemp;
+    				break;
+    			}
+    		}
+    		return C;
+    		}
+}
+
+

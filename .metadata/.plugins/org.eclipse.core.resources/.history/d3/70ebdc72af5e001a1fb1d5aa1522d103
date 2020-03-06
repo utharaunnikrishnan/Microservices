@@ -1,0 +1,16 @@
+package com.ofss;
+
+import java.util.ArrayList;
+
+import org.springframework.web.bind.annotation.RestController;
+
+@RestController
+public class CustomerController {
+
+	public ArrayList<Customer> allCustomers()
+	{
+		Customer c1= new Customer(1, "Uthara", "Bangalore");
+		Customer c2= new Customer(1, "Priyanka", "Bangalore");
+		
+	}
+}
